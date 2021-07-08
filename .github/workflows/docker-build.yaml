@@ -1,10 +1,9 @@
 name: Docker Image CI
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ $default-branch ]
   pull_request:
-    branches: [ $default-branch ]
 
 jobs:
   build:
