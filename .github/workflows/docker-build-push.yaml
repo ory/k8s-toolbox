@@ -5,13 +5,14 @@ on:
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
 
+jobs:
   toolbox:
     name: Build & Push Image
     runs-on: ubuntu-20.04
     env:
       IMAGE_REPO: 'gcr.io/ory-artifacts'
       IMAGE_NAME: 'k8s-toolbox'
-      DIRECTORY: '.'
+      DIRECTORY: 'docker'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
