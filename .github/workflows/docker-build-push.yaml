@@ -1,0 +1,48 @@
+name: Docker Image Push
+on:
+  push:
+    branches: [ master ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+
+  toolbox:
+    name: Build & Push Image
+    runs-on: ubuntu-20.04
+    env:
+      IMAGE_REPO: 'gcr.io/ory-artifacts'
+      IMAGE_NAME: 'k8s-toolbox'
+      DIRECTORY: '.'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # - uses: actions/setup-go@v2
+      #   with:
+      #     go-version: '^1.16'
+      - name: Build & Push Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: ${{ env.IMAGE_NAME }}
+          dockerfile: ${{ env.DIRECTORY }}/Dockerfile
+          directory: ${{ env.DIRECTORY }}
+          registry: ${{ env.IMAGE_REPO }}
+          tags: latest,${{ github.sha }}
+          username: _json_key
+          password: ${{ secrets.SA_GHA_IMAGE_PUSHER }}
+      - name: Create Artifact File
+        run: |
+          mkdir ~/new-images
+          echo "New Image ${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ github.sha }}" > ~/new-images/${{ env.IMAGE_NAME }}.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: new-images-${{ github.sha }}
+          path: ~/new-images/${{ env.IMAGE_NAME }}.txt
+          retention-days: 1
+      - name: Scan Docker Image
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '${{ env.IMAGE_REPO }}/${{ env.IMAGE_NAME }}:${{ github.sha }}'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: false
+          vuln-type: 'os,library'
+          severity: 'MEDIUM,CRITICAL,HIGH'
