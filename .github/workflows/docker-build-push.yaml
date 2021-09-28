@@ -49,7 +49,7 @@ jobs:
       - name: Scan image
         uses: anchore/scan-action@v3
         with:
-          image: ${{ steps.meta.outputs.tags }}
+          image: oryd/k8s-toolbox:sha-${GITHUB_SHA::6}
           fail-build: true
           severity-cutoff: high
       - name: Login to DockerHub
