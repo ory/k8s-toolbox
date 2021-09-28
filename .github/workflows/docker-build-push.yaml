@@ -30,6 +30,11 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=sha
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"      
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -49,7 +54,7 @@ jobs:
       - name: Scan image
         uses: anchore/scan-action@v3
         with:
-          image: oryd/k8s-toolbox:sha-${GITHUB_SHA::6}
+          image: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
           fail-build: true
           severity-cutoff: high
       - name: Login to DockerHub
