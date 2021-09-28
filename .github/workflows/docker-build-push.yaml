@@ -47,10 +47,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           load: true
-      -
-        name: Inspect
-        run: |
-          docker images --all
       - name: Scan image
         uses: anchore/scan-action@v3
         with:
