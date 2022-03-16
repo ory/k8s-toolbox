@@ -1,9 +1,9 @@
-FROM alpine:3.14.2
+FROM alpine:3.15.0
 
 ARG USER=ory
 ENV HOME /home/$USER
 
-RUN apk add -U --no-cache \
+RUN apk add --no-cache --update-cache --upgrade --latest \
 	ca-certificates sudo curl netcat-openbsd coreutils bash inotify-tools
 
 RUN addgroup -S $USER &&\
