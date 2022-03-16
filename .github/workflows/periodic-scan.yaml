@@ -1,0 +1,13 @@
+name: Periodic CVE scan
+on:
+  workflow_dispatch:
+  schedule:
+    # https://crontab.guru/#0_0_*_*_1
+    - cron: '0 0 * * 1'
+
+jobs:
+  periodic-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Scan
+        uses: ./.github/actions/build-and-scan
