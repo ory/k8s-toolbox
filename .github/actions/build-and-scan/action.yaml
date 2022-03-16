@@ -38,11 +38,22 @@ runs:
         load: true
     - name: Anchore Scanner
       uses: anchore/scan-action@v3
+      if: always()
+      id: grype-scan
       with:
         image: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
         fail-build: true
         severity-cutoff: high
+        acs-report-enable: true
+    - name: Inspect action SARIF report
+      shell: bash
+      if: always()
+      run: |
+        echo "::group::Anchore Scan Details"
+        jq '.runs[0].results' ${{ steps.grype-scan.outputs.sarif }}
+        echo "::endgroup::"
     - name: Trivy Scanner
+      if: always()
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
