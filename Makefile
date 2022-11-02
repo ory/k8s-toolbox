@@ -1,5 +1,5 @@
 format:
-	@echo No formatting necessary here (yet)
+	@echo "No formatting necessary here (yet)"
 
 licenses:
-	@echo No license checks necessary in this repository (yet).
+	@echo "No license checks necessary in this repository (yet)."
