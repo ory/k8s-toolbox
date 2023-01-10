@@ -3,7 +3,7 @@ FROM alpine:3.16.2
 ARG USER=ory
 ENV HOME /home/$USER
 ENV JQ_VERSION 1.6
-ENV KUBECTL_VERSION 1.25.3
+ENV KUBECTL_VERSION 1.25.5
 
 RUN apk add --no-cache --update-cache --upgrade --latest \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
