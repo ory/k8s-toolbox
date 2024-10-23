@@ -1,0 +1,27 @@
+name: Validation - GHA Linter
+on:
+  merge_group:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - master
+
+jobs:
+  validate:
+    name: Validate GHA
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          base: master
+          filters: |
+            workflows:
+              - '.github/**'
+      - name: actionlint
+        if: ${{ steps.filter.outputs.workflows == 'true' }}
+        uses: raven-actions/actionlint@v2
