@@ -19,13 +19,13 @@ runs:
         echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3    # Updated from v1 to v3
+      uses: docker/setup-qemu-action@v3
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3  # Updated from v1 to v3
+      uses: docker/setup-buildx-action@v3
 
     - name: Build
-      uses: docker/build-push-action@v5    # Updated from v2 to v5
+      uses: docker/build-push-action@v5
       with:
         context: ./docker
         push: false
