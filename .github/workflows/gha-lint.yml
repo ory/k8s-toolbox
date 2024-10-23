@@ -24,4 +24,4 @@ jobs:
               - '.github/**'
       - name: actionlint
         if: ${{ steps.filter.outputs.workflows == 'true' }}
-        uses: raven-actions/actionlint@v1
+        uses: raven-actions/actionlint@v2
