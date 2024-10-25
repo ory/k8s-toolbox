@@ -32,7 +32,6 @@ runs:
         tags: ${{ inputs.tags }}
         labels: ${{ inputs.labels }}
         load: true
-        platforms: linux/amd64,linux/arm64,darwin
 
     - name: Anchore Scanner
       uses: anchore/scan-action@v5
