@@ -44,3 +44,6 @@ docker_manifests:
 release:
   prerelease: auto
   name_template: "{{ .Tag }}"
+  # Temporary, until we regenerate valid tokens  
+  disable: true
+  skip_upload: true
