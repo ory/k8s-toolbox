@@ -20,14 +20,18 @@ dockers:
     goarch: amd64
     build_flag_templates:
       - "--platform=linux/amd64"
+      - "--build-arg=BUILD_ARCH=amd64"
     dockerfile: "docker/Dockerfile"
+    use: "buildx"
   - image_templates:
       - "oryd/{{ .ProjectName }}:{{ .Tag }}-arm64"
       - "oryd/{{ .ProjectName }}:{{ .ShortCommit }}-arm64"
     goarch: arm64
     build_flag_templates:
       - "--platform=linux/arm64"
+      - "--build-arg=BUILD_ARCH=arm64"
     dockerfile: "docker/Dockerfile"
+    use: "buildx"
 
 docker_manifests:
   - name_template: "oryd/{{ .ProjectName }}:{{ .Tag }}"
