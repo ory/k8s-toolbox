@@ -35,7 +35,7 @@ runs:
         platforms: linux/amd64,linux/arm64,darwin
 
     - name: Anchore Scanner
-      uses: anchore/scan-action@master
+      uses: anchore/scan-action@v5
       if: always()
       id: grype-scan
       with:
