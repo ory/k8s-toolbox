@@ -1,9 +1,9 @@
 FROM alpine:3.20
 
 ARG USER=ory
-ENV HOME /home/$USER
-ENV JQ_VERSION 1.7.1
-ENV KUBECTL_VERSION 1.31.2
+ENV HOME=/home/$USER
+ENV JQ_VERSION=1.7.1
+ENV KUBECTL_VERSION=1.31.2
 
 RUN apk add --no-cache --update-cache --upgrade --latest \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
