@@ -1,11 +1,14 @@
+# AUTO-GENERATED, DO NOT EDIT!
+# Please edit the original at https://github.com/ory/meta/blob/master/templates/repository/common/.github/ISSUE_TEMPLATE/config.yml
+
 blank_issues_enabled: false
 contact_links:
-  - name: Ory Kubernetes Resources Forum
-    url: https://github.com/ory/k8s/discussions
-    about: Please ask and answer questions here, show your implementations and discuss ideas.
+  - name: Ory k8s-toolbox Forum
+    url: https://github.com/orgs/ory/discussions
+    about:
+      Please ask and answer questions here, show your implementations and
+      discuss ideas.
   - name: Ory Chat
     url: https://www.ory.sh/chat
-    about: Hang out with other Ory community members to ask and answer questions.
-  - name: Ory Support for Business
-    url: https://github.com/ory/open-source-support/blob/master/README.md
-    about: Buy professional support for Ory Kubernetes Resources.
+    about:
+      Hang out with other Ory community members to ask and answer questions.

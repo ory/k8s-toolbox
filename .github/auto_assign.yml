@@ -1,3 +1,6 @@
+# AUTO-GENERATED, DO NOT EDIT!
+# Please edit the original at https://github.com/ory/meta/blob/master/templates/repository/common/.github/auto_assign.yml
+
 # Set to true to add reviewers to pull requests
 addReviewers: true
 
@@ -11,5 +14,3 @@ assignees:
 # A number of reviewers added to the pull request
 # Set 0 to add all the reviewers (default: 0)
 numberOfReviewers: 0
-
-addAssignees: author
