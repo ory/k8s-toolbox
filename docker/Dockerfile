@@ -6,7 +6,7 @@ ENV HOME=/home/$USER
 ENV JQ_VERSION=1.7.1
 ENV KUBECTL_VERSION=1.32.1
 
-RUN apk add --no-cache --update-cache --upgrade --latest \
+RUN apk add --no-cache --update-cache --upgrade \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
 
 RUN curl -Lo /usr/local/bin/jq "https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux-${BUILD_ARCH}" &&\
