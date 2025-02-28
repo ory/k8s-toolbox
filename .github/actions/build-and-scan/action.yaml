@@ -63,7 +63,7 @@ runs:
         severity: 'CRITICAL,HIGH'
 
     - name: Dockle Linter
-      uses: erzz/dockle-action@v1.3.1
+      uses: erzz/dockle-action@v1.4.0
       if: always()
       with:
         image: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
