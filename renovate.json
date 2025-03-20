@@ -3,5 +3,13 @@
   "extends": [
     "config:recommended"
   ],
+  "packageRules": [
+    {
+      "description": "Group GHA",
+      "enabled": true,
+      "groupName": "gha",
+      "matchFileNames": [".github/**"]
+    }
+  ],
   "prHourlyLimit": 5
 }
