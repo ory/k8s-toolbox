@@ -60,4 +60,4 @@ jobs:
           version: latest
           args: release --clean --verbose
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.ORY_BOT_PAT }}
