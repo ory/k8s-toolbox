@@ -52,7 +52,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKER_SECRET_AREKKAS }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
