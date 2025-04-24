@@ -4,7 +4,7 @@ ARG USER=ory
 ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
 ENV JQ_VERSION=1.7.1
-ENV KUBECTL_VERSION=1.32.2
+ENV KUBECTL_VERSION=1.33.0
 
 RUN apk add --no-cache --update-cache --upgrade \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
