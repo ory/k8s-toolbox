@@ -3,8 +3,8 @@ FROM alpine:3.22.0
 ARG USER=ory
 ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
-ENV JQ_VERSION=1.7.1
-ENV KUBECTL_VERSION=1.33.0
+ENV JQ_VERSION=1.8.0
+ENV KUBECTL_VERSION=1.33.1
 
 RUN apk add --no-cache --update-cache --upgrade \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
