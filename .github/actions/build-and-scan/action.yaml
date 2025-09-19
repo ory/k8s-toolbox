@@ -34,7 +34,7 @@ runs:
         load: true
 
     - name: Anchore Scanner
-      uses: anchore/scan-action@v6
+      uses: anchore/scan-action@v7
       if: always()
       id: grype-scan
       with:
