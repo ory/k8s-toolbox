@@ -41,7 +41,7 @@ runs:
         image: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
         fail-build: true
         severity-cutoff: high
-        acs-report-enable: true
+        only-fixed: true
 
     - name: Inspect action SARIF report
       shell: bash
