@@ -1,4 +1,4 @@
-FROM alpine:3.23.2
+FROM alpine:3.23.3
 
 ARG USER=ory
 ARG BUILD_ARCH=amd64
