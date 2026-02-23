@@ -4,6 +4,7 @@ ARG USER=ory
 ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
 ENV JQ_VERSION=1.8.1
+# renovate: datasource=github-releases depName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=1.35.1
 
 RUN apk add --no-cache --update-cache --upgrade \
