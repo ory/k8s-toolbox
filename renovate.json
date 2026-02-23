@@ -11,5 +11,18 @@
       "matchFileNames": [".github/**"]
     }
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Consolidated version/image updates for Makefile, Dockerfile and .deps yaml files",
+      "fileMatch": ["^Makefile$", "^Dockerfile$", "^.deps/.*.yaml$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>[^\\s]+)(?: extractVersion=(?<extractVersion>[^\\s]+))?\\n(?:(?<varName>[A-Z0-9_]+) ?\\?= ?|version: )(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "{{{ datasource }}}",
+      "depNameTemplate": "{{{ depName }}}",
+      "extractVersionTemplate": "{{{ extractVersion }}}"
+    }
+  ]
   "prHourlyLimit": 5
 }
