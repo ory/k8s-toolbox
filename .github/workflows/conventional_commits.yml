@@ -24,9 +24,9 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - id: config
-        uses: ory/ci/conventional_commit_config@master
+        uses: ory/ci/conventional_commit_config@7b6da9a43ebe89057a064a72ab75b58561c7e0f7 # master
         with:
           config_path: .github/conventional_commits.json
           default_types: |

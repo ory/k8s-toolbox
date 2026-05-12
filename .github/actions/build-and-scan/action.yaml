@@ -34,7 +34,7 @@ runs:
         load: true
 
     - name: Anchore Scanner
-      uses: anchore/scan-action@v7
+      uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7
       if: always()
       id: grype-scan
       with:
@@ -52,7 +52,7 @@ runs:
         echo "::endgroup::"
 
     - name: Dockle Linter
-      uses: erzz/dockle-action@v1.4.0
+      uses: erzz/dockle-action@e8a7c41f36f1236ca3282b298d425ffbfdb2e922 # v1.4.1
       if: always()
       with:
         image: oryd/k8s-toolbox:sha-${{ steps.vars.outputs.sha_short }}
