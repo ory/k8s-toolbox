@@ -1,0 +1,27 @@
+name: Validation - Renovate
+on:
+  merge_group:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - master
+
+jobs:
+  validate:
+    name: Validate Renovate
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          base: master
+          filters: |
+            workflows:
+              - 'renovate.json'
+      - name: actionlint
+        if: ${{ steps.filter.outputs.workflows == 'true' }}
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@v1.0.1
