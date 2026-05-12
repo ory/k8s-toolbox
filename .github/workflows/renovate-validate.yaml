@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@fbd0ab8f3e69293af611ebaee6363fc25e6d187d # v4
         id: filter
         with:
           base: master
@@ -24,4 +24,4 @@ jobs:
               - 'renovate.json'
       - name: Validate Renovate config
         if: ${{ steps.filter.outputs.renovate == 'true' }}
-        uses: suzuki-shunsuke/github-action-renovate-config-validator@v1.0.1
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@ee9f69e1f683ed0d08225086482b34fc9abe9300 # v2.1.0
