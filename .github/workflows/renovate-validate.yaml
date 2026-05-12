@@ -11,7 +11,7 @@ jobs:
     name: Validate Renovate
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    if: github.event_name == 'merge_group' || github.event.pull_request.draft == false
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -20,8 +20,8 @@ jobs:
         with:
           base: master
           filters: |
-            workflows:
+            renovate:
               - 'renovate.json'
-      - name: actionlint
-        if: ${{ steps.filter.outputs.workflows == 'true' }}
+      - name: Validate Renovate config
+        if: ${{ steps.filter.outputs.renovate == 'true' }}
         uses: suzuki-shunsuke/github-action-renovate-config-validator@v1.0.1
