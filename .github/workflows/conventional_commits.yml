@@ -24,9 +24,9 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
       - id: config
-        uses: ory/ci/conventional_commit_config@master
+        uses: ory/ci/conventional_commit_config@7b6da9a43ebe89057a064a72ab75b58561c7e0f7 # master
         with:
           config_path: .github/conventional_commits.json
           default_types: |
@@ -46,7 +46,7 @@ jobs:
             deps
             docs
           default_require_scope: false
-      - uses: amannn/action-semantic-pull-request@v4
+      - uses: amannn/action-semantic-pull-request@505e44b4f33b4c801f063838b3f053990ee46ea7 # v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
