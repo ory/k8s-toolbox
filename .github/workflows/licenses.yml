@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install script
-        uses: ory/ci/licenses/setup@7b6da9a43ebe89057a064a72ab75b58561c7e0f7 # master
+        uses: ory/ci/licenses/setup@master
         with:
           token: ${{ secrets.ORY_BOT_PAT || secrets.GITHUB_TOKEN }}
       - name: Check licenses
-        uses: ory/ci/licenses/check@7b6da9a43ebe89057a064a72ab75b58561c7e0f7 # master
+        uses: ory/ci/licenses/check@master
       - name: Write, commit, push licenses
-        uses: ory/ci/licenses/write@7b6da9a43ebe89057a064a72ab75b58561c7e0f7 # master
+        uses: ory/ci/licenses/write@master
         if:
           ${{ github.ref == 'refs/heads/main' || github.ref ==
           'refs/heads/master' || github.ref == 'refs/heads/v3' }}
