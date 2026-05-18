@@ -5,7 +5,7 @@ ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
 # renovate: datasource=github-releases depName=jq packageName=jqlang/jq
 ENV JQ_VERSION=1.8.1
-# renovate: datasource=github-releases depName=kubernetes/kubernetes
+# renovate: datasource=github-releases depName=kubernetes packageName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=1.36.0
 
 RUN apk add --no-cache --update-cache --upgrade \
