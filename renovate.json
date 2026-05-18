@@ -9,17 +9,19 @@
       "enabled": true,
       "groupName": "gha",
       "matchFileNames": [".github/**"]
+    },
+    {
+      "description": "Docker image",
+      "enabled": true,
+      "groupName": "docker images",
+      "matchFileNames": ["docker/**"]
     }
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Consolidated version/image updates for Makefile, Dockerfile and .deps yaml files",
-      "managerFilePatterns": [
-        "/^Makefile$/",
-        "/^Dockerfile$/",
-        "/^.deps/.*.yaml$/"
-      ],
+      "description": "Consolidated version/image updates for Makefile and .deps yaml files",
+      "managerFilePatterns": ["/^Makefile$/", "/^.deps/.*.yaml$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?) depName=(?<depName>[^\\s]+)(?: extractVersion=(?<extractVersion>[^\\s]+))?\\n(?:(?<varName>[A-Z0-9_]+) ?\\?= ?|version: )(?<currentValue>.*)"
       ],
@@ -27,6 +29,6 @@
       "depNameTemplate": "{{{ depName }}}",
       "extractVersionTemplate": "{{{ extractVersion }}}"
     }
-  ],
+  ]
   "prHourlyLimit": 5
 }
