@@ -6,7 +6,7 @@ ENV HOME=/home/$USER
 # renovate: datasource=github-releases depName=jq packageName=jqlang/jq
 ENV JQ_VERSION=1.8.1
 # renovate: datasource=github-releases depName=kubernetes packageName=kubernetes/kubernetes
-ENV KUBECTL_VERSION=1.36.0
+ENV KUBECTL_VERSION=1.36.1
 
 RUN apk add --no-cache --update-cache --upgrade \
 	ca-certificates curl netcat-openbsd coreutils bash inotify-tools procps
