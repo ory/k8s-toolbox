@@ -3,6 +3,7 @@ FROM alpine:3.23.4@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a
 ARG USER=ory
 ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
+# renovate: datasource=github-releases depName=jq packageName=jqlang/jq
 ENV JQ_VERSION=1.8.1
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=1.36.0
