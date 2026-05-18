@@ -29,6 +29,6 @@
       "depNameTemplate": "{{{ depName }}}",
       "extractVersionTemplate": "{{{ extractVersion }}}"
     }
-  ]
+  ],
   "prHourlyLimit": 5
 }
