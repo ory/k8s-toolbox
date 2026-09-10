@@ -4,7 +4,7 @@ ARG USER=ory
 ARG BUILD_ARCH=amd64
 ENV HOME=/home/$USER
 # renovate: datasource=github-releases depName=jq packageName=jqlang/jq
-ENV JQ_VERSION=1.8.1
+ENV JQ_VERSION=1.8.2
 # renovate: datasource=github-releases depName=kubernetes packageName=kubernetes/kubernetes
 ENV KUBECTL_VERSION=1.37.0
 
