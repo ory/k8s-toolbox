@@ -24,4 +24,4 @@ jobs:
               - 'renovate.json'
       - name: Validate Renovate config
         if: ${{ steps.filter.outputs.renovate == 'true' }}
-        uses: suzuki-shunsuke/github-action-renovate-config-validator@ee9f69e1f683ed0d08225086482b34fc9abe9300 # v2.1.0
+        uses: suzuki-shunsuke/github-action-renovate-config-validator@394f7a3d2641cad2995938f9dc7e54580c8a7089 # v2.3.0
